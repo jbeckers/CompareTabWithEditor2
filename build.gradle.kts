@@ -1,4 +1,5 @@
 import org.jetbrains.intellij.tasks.PatchPluginXmlTask
+import org.jetbrains.intellij.tasks.PublishTask
 
 group = "be.jbeckers"
 version = "1.0"
@@ -23,5 +24,9 @@ tasks {
         changeNotes("Updated for Intellij 2019.2+")
         version("1.0")
         sinceBuild("192")
+    }
+
+    getByName<PublishTask>("publishPlugin") {
+        findProperty("pluginsRepoToken")?.let { token(it) }
     }
 }
