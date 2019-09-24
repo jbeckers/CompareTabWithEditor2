@@ -1,0 +1,17 @@
+<idea-plugin>
+<!--    <id>be.jbeckers.compare_tab_with_editor2</id>-->
+    <name>Compare Tab With Editor 2</name>
+<!--    <description>Allows to compare file selected by right click on tab with currently edited file.</description>-->
+    <vendor email="joachim@jbeckers.be" url="https://jbeckers.github.io/compare-tab-with-editor/">Joachim Beckers</vendor>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectService serviceImplementation="be.jbeckers.ctwe.CompareTabWithEditorService"/>
+    </extensions>
+
+    <actions>
+        <action id="be.jbeckers.ctwe.CompareTabWithEditor" class="be.jbeckers.ctwe.CompareTabWithEditor"
+                text="Compare Tab With Editor" icon="/diff/Diff.png">
+            <add-to-group group-id="EditorTabPopupMenuEx" anchor="before" relative-to-action="ExternalToolsGroup"/>
+        </action>
+    </actions>
+</idea-plugin>
