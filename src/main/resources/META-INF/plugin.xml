@@ -4,6 +4,8 @@
 <!--    <description>Allows to compare file selected by right click on tab with currently edited file.</description>-->
     <vendor email="joachim@jbeckers.be" url="https://jbeckers.github.io/CompareTabWithEditor2/">Joachim Beckers</vendor>
 
+    <depends>com.intellij.modules.platform</depends>
+
     <extensions defaultExtensionNs="com.intellij">
         <projectService serviceImplementation="be.jbeckers.ctwe.CompareTabWithEditorService"/>
     </extensions>
