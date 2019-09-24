@@ -21,7 +21,7 @@ tasks {
     getByName<PatchPluginXmlTask>("patchPluginXml") {
         pluginId("be.jbeckers.compare_tab_with_editor2")
         pluginDescription("Allows to compare file selected by right click on tab with currently edited file.")
-        changeNotes("Updated for Intellij 2019.2+")
+        changeNotes("Updated for Intellij 2019.2+, since some deprecated APIs were removed")
         version("1.0")
         sinceBuild("192")
     }
