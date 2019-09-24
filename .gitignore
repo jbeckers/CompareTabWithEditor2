@@ -25,6 +25,7 @@ hs_err_pid*
 # gradle stuff
 /build/
 /.gradle/
+/gradle.properties
 
 #intellij stuff
 /.idea/
