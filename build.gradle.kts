@@ -2,7 +2,7 @@ import org.jetbrains.intellij.tasks.PatchPluginXmlTask
 import org.jetbrains.intellij.tasks.PublishTask
 
 group = "be.jbeckers"
-version = "1.0"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
@@ -21,8 +21,13 @@ tasks {
     getByName<PatchPluginXmlTask>("patchPluginXml") {
         pluginId("be.jbeckers.compare_tab_with_editor2")
         pluginDescription("Allows to compare file selected by right click on tab with currently edited file.")
-        changeNotes("Updated for Intellij 2019.2+, since some deprecated APIs were removed")
-        version("1.0")
+        changeNotes("""
+                    1.0.1
+                    A new release to test publishing from gradle
+                    1.0
+                    Updated for Intellij 2019.2+, since some deprecated APIs were removed
+                    """.trimIndent())
+        version("1.0.1")
         sinceBuild("192")
     }
 
