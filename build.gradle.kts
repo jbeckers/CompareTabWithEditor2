@@ -1,37 +1,42 @@
-import org.jetbrains.intellij.tasks.PatchPluginXmlTask
-import org.jetbrains.intellij.tasks.PublishTask
-
 group = "be.jbeckers"
-version = "1.0.1"
+version = "1.0.2"
 
 repositories {
     mavenCentral()
 }
 
 plugins {
-    java
-    id("org.jetbrains.intellij") version "0.4.10"
+    id("org.jetbrains.intellij") version "0.4.15"
+    kotlin("jvm") version "1.3.61"
 }
 
 intellij {
     version = "LATEST-EAP-SNAPSHOT"
 }
 
+/**
+ * Simple function to load HTML files and remove the surrounding `<html>` tags. This is useful for maintaining changes-notes
+ * and the description of plugins in separate HTML files which makes them much more readable.
+ */
+fun htmlFixer(filename: String): String {
+    if (!File(filename).exists()) {
+        logger.error("File $filename not found.")
+    } else {
+        return File(filename).readText().replace("<html>", "").replace("</html>", "")
+    }
+    return ""
+}
+
 tasks {
-    getByName<PatchPluginXmlTask>("patchPluginXml") {
+    named<org.jetbrains.intellij.tasks.PatchPluginXmlTask>("patchPluginXml") {
         pluginId("be.jbeckers.compare_tab_with_editor2")
-        pluginDescription("Allows to compare file selected by right click on tab with currently edited file.")
-        changeNotes("""
-                    1.0.1
-                    A new release to test publishing from gradle
-                    1.0
-                    Updated for Intellij 2019.2+, since some deprecated APIs were removed
-                    """.trimIndent())
-        version("1.0.1")
+        pluginDescription(htmlFixer("src/main/resources/META-INF/description.html"))
+        changeNotes(htmlFixer("src/main/resources/META-INF/change-notes.html"))
+        version("1.0.2")
         sinceBuild("192")
     }
 
-    getByName<PublishTask>("publishPlugin") {
+    named<org.jetbrains.intellij.tasks.PublishTask>("publishPlugin") {
         findProperty("pluginsRepoToken")?.let { token(it) }
     }
 }
