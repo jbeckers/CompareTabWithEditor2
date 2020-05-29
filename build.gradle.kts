@@ -2,15 +2,15 @@ import org.jetbrains.intellij.tasks.PatchPluginXmlTask
 import org.jetbrains.intellij.tasks.PublishTask
 
 group = "be.jbeckers"
-version = "1.0.1"
+version = "1.0.3"
 
 repositories {
     mavenCentral()
 }
 
 plugins {
-    java
-    id("org.jetbrains.intellij") version "0.4.10"
+    id("org.jetbrains.intellij") version "0.4.21"
+    kotlin("jvm") version "1.3.72"
 }
 
 intellij {
@@ -22,12 +22,9 @@ tasks {
         pluginId("be.jbeckers.compare_tab_with_editor2")
         pluginDescription("Allows to compare file selected by right click on tab with currently edited file.")
         changeNotes("""
-                    1.0.1
-                    A new release to test publishing from gradle
-                    1.0
-                    Updated for Intellij 2019.2+, since some deprecated APIs were removed
+                    1.0.3 Support the latest 2020.2 EAP
                     """.trimIndent())
-        version("1.0.1")
+        version("1.0.3")
         sinceBuild("192")
     }
 

@@ -12,7 +12,7 @@
 
     <actions>
         <action id="be.jbeckers.ctwe.CompareTabWithEditor" class="be.jbeckers.ctwe.CompareTabWithEditor"
-                text="Compare Tab With Editor" icon="/diff/Diff.png">
+                text="Compare Tab With Editor" icon="AllIcons.Actions.Diff">
             <add-to-group group-id="EditorTabPopupMenuEx" anchor="before" relative-to-action="ExternalToolsGroup"/>
         </action>
     </actions>
