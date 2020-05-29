@@ -1,0 +1,15 @@
+name: IntelliJ plugin verifier
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: IntelliJ Plugin Verifier
+      uses: thepieterdc/intellij-plugin-verifier-action@v1.1.2
