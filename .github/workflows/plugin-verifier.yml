@@ -1,5 +1,4 @@
 name: IntelliJ plugin verifier
-
 on:
   push:
     branches: [ master ]
@@ -11,5 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@master
+    - name: Setup Java
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11.x.x
+    - name: Build the plugin using Gradle
+      run: ./gradlew buildPlugin
     - name: IntelliJ Plugin Verifier
       uses: thepieterdc/intellij-plugin-verifier-action@v1.1.2
+      with:
+        plugin: '/home/runner/work/CompareTabWithEditor2/CompareTabWithEditor2/build/distributions/CompareTabWithEditor2-*'
+        versions: |
+          LATEST-EAP-SNAPSHOT
