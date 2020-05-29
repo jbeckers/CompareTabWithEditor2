@@ -20,6 +20,8 @@ jobs:
     - name: IntelliJ Plugin Verifier
       uses: thepieterdc/intellij-plugin-verifier-action@v1.1.2
       with:
-        plugin: '/home/runner/work/CompareTabWithEditor2/CompareTabWithEditor2/build/distributions/CompareTabWithEditor2-*'
+        plugin: '/home/runner/work/CompareTabWithEditor2/CompareTabWithEditor2/build/distributions/Compare Tab With Editor 2-*'
         versions: |
+          2019.3.5
+          2020.1.1
           LATEST-EAP-SNAPSHOT
