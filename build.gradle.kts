@@ -9,8 +9,8 @@ repositories {
 }
 
 plugins {
-    id("org.jetbrains.intellij") version "0.5.0"
-    id("org.jetbrains.changelog") version "0.5.0"
+    id("org.jetbrains.intellij") version "0.6.1"
+    id("org.jetbrains.changelog") version "0.6.2"
     id("org.jetbrains.kotlin.jvm") version "1.4.10"
 }
 
@@ -25,6 +25,10 @@ tasks {
         changeNotes(closure { changelog.get("${project.version}").toHTML() })
         version("${project.version}")
         sinceBuild("192")
+    }
+
+    runPluginVerifier {
+        ideVersions(listOf("IC-2109.2", "IC-2109.3", "IC-2020.1", "IC-2020.2", "IC-2020.3"))
     }
 
     publishPlugin {
