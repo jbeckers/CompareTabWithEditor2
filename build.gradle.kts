@@ -30,7 +30,7 @@ tasks {
 
     runPluginVerifier {
         ideVersions(listOf(
-            "IC-2109.2.4", "IC-2109.3.5",
+            "IC-2019.2.4", "IC-2019.3.5",
             "IC-2020.1.4", "IC-2020.2.4", "IC-2020.3.2",
             "IC-2021.1"))
     }
