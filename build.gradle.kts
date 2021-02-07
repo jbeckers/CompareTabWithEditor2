@@ -9,9 +9,9 @@ repositories {
 }
 
 plugins {
-    id("org.jetbrains.intellij") version "0.6.1"
-    id("org.jetbrains.changelog") version "0.6.2"
-    id("org.jetbrains.kotlin.jvm") version "1.4.10"
+    id("org.jetbrains.intellij") version "0.6.5"
+    id("org.jetbrains.changelog") version "1.0.1"
+    id("org.jetbrains.kotlin.jvm") version "1.4.30"
 }
 
 intellij {
