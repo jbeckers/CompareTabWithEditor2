@@ -6,6 +6,7 @@ version = "1.0.4"
 
 repositories {
     mavenCentral()
+    maven("https://www.jetbrains.com/intellij-repository/snapshots")
 }
 
 plugins {
