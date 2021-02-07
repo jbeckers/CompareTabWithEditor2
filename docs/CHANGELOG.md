@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 
+## [1.0.5]
+### Changed
+- Support IntelliJ 2021.1 EAP
+- Update to Gradle 6.8.2
+- Update to gradle-intellij-plugin 0.6.5
+- Use gradle-changelog-plugin 1.0.1
+- Use kotlin 1.4.30
+
 ## [1.0.4]
 ### Changed
 - Support IntelliJ 2020.3 EAP
@@ -35,7 +43,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Updated for Intellij 2019.2+, since some deprecated APIs were removed
 
-[Unreleased]: https://github.com/jbeckers/CompareTabWithEditor2/compare/1.0.3...HEAD
+[Unreleased]: https://github.com/jbeckers/CompareTabWithEditor2/compare/1.0.5...HEAD
+[1.0.4]: https://github.com/jbeckers/CompareTabWithEditor2/compare/1.0.4...1.0.5
 [1.0.4]: https://github.com/jbeckers/CompareTabWithEditor2/compare/1.0.3...1.0.4
 [1.0.3]: https://github.com/jbeckers/CompareTabWithEditor2/compare/1.0.2...1.0.3
 [1.0.2]: https://github.com/jbeckers/CompareTabWithEditor2/compare/1.0.1...1.0.2
