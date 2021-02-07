@@ -44,7 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated for Intellij 2019.2+, since some deprecated APIs were removed
 
 [Unreleased]: https://github.com/jbeckers/CompareTabWithEditor2/compare/1.0.5...HEAD
-[1.0.4]: https://github.com/jbeckers/CompareTabWithEditor2/compare/1.0.4...1.0.5
+[1.0.5]: https://github.com/jbeckers/CompareTabWithEditor2/compare/1.0.4...1.0.5
 [1.0.4]: https://github.com/jbeckers/CompareTabWithEditor2/compare/1.0.3...1.0.4
 [1.0.3]: https://github.com/jbeckers/CompareTabWithEditor2/compare/1.0.2...1.0.3
 [1.0.2]: https://github.com/jbeckers/CompareTabWithEditor2/compare/1.0.1...1.0.2
