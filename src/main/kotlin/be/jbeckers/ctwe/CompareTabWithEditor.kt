@@ -32,7 +32,8 @@ class CompareTabWithEditor : CompareFilesAction() {
                     DiffContentFactory.getInstance().create(project, left),
                     DiffContentFactory.getInstance().create(project, right),
                     getVirtualFileContentTitle(left),
-                    getVirtualFileContentTitle(right))
+                    getVirtualFileContentTitle(right)
+                )
             }
         }
     }
