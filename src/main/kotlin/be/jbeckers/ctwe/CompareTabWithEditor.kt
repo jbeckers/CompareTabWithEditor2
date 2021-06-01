@@ -5,38 +5,36 @@ import com.intellij.diff.actions.CompareFilesAction
 import com.intellij.diff.requests.DiffRequest
 import com.intellij.diff.requests.SimpleDiffRequest
 import com.intellij.openapi.actionSystem.AnActionEvent
-import com.intellij.openapi.actionSystem.Presentation
 import com.intellij.openapi.diff.DiffBundle
 import com.intellij.openapi.fileEditor.ex.FileEditorManagerEx
-import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.io.FileUtil
 import com.intellij.openapi.vfs.VirtualFile
 
 class CompareTabWithEditor : CompareFilesAction() {
 
     override fun getDiffRequest(e: AnActionEvent): DiffRequest? {
-        val diffRequest = super.getDiffRequest(e)
-        if (diffRequest != null) {
-            return diffRequest
-        }
+        return if (super.getDiffRequest(e) != null) {
+            super.getDiffRequest(e)
+        } else {
+            val project = e.project ?: return null
 
-        val project = e.project ?: return null
-
-        val left = FileEditorManagerEx.getInstanceEx(project).currentFile
-        val right = CompareTabWithEditorService.getInstance(project).currentFile
-        return if (left == null || right == null) {
-            null
-        } else SimpleDiffRequest(
-                DiffBundle.message(
-                    "diff.element.qualified.name.vs.element.qualified.name.dialog.title",
+            val left = FileEditorManagerEx.getInstanceEx(project).currentFile
+            val right = CompareTabWithEditorService.getInstance(project).currentFile
+            if (left == null || right == null) {
+                null
+            } else {
+                SimpleDiffRequest(
+                    DiffBundle.message(
+                        "diff.element.qualified.name.vs.element.qualified.name.dialog.title",
+                        getVirtualFileContentTitle(left),
+                        getVirtualFileContentTitle(right)
+                    ),
+                    DiffContentFactory.getInstance().create(project, left),
+                    DiffContentFactory.getInstance().create(project, right),
                     getVirtualFileContentTitle(left),
-                    getVirtualFileContentTitle(right)
-                ),
-                DiffContentFactory.getInstance().create(project, left),
-                DiffContentFactory.getInstance().create(project, right),
-                getVirtualFileContentTitle(left),
-                getVirtualFileContentTitle(right))
-
+                    getVirtualFileContentTitle(right))
+            }
+        }
     }
 
     override fun update(e: AnActionEvent) {
@@ -49,7 +47,6 @@ class CompareTabWithEditor : CompareFilesAction() {
             val right = CompareTabWithEditorService.getInstance(project).currentFile
             presentation.isVisible = left != null && right != null && left != right
         }
-
     }
 
     companion object {
