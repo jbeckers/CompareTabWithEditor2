@@ -27,7 +27,11 @@ class CompareTabWithEditor : CompareFilesAction() {
         return if (left == null || right == null) {
             null
         } else SimpleDiffRequest(
-                DiffBundle.message("diff.element.qualified.name.vs.element.qualified.name.dialog.title", getVirtualFileContentTitle(left), getVirtualFileContentTitle(right)),
+                DiffBundle.message(
+                    "diff.element.qualified.name.vs.element.qualified.name.dialog.title",
+                    getVirtualFileContentTitle(left),
+                    getVirtualFileContentTitle(right)
+                ),
                 DiffContentFactory.getInstance().create(project, left),
                 DiffContentFactory.getInstance().create(project, right),
                 getVirtualFileContentTitle(left),
@@ -43,11 +47,7 @@ class CompareTabWithEditor : CompareFilesAction() {
         } else {
             val left = FileEditorManagerEx.getInstanceEx(project).currentFile
             val right = CompareTabWithEditorService.getInstance(project).currentFile
-            if (left == null || right == null || left == right) {
-                presentation.isVisible = false
-            } else {
-                presentation.isVisible = true
-            }
+            presentation.isVisible = left != null && right != null && left != right
         }
 
     }

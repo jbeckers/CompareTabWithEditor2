@@ -1,5 +1,7 @@
 # [Compare Tab With Editor 2](https://jbeckers.github.io/CompareTabWithEditor2/)
+<!-- Plugin description -->
 An IntelliJ plugin that allows to compare a tab with the currently open file
+<!-- Plugin description end -->
 
 Get it from the JetBrains Marketplace or the [the plugin page](https://plugins.jetbrains.com/plugin/13053-compare-tab-with-editor-2/).
 
