@@ -7,9 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ## [1.0.6]
 ### Changed
-
-## [1.0.6]
-### Changed
 - Update to Gradle 7.0.2
 - Update to gradle-intellij-plugin 1.0
 - Use gradle-changelog-plugin 1.1.2
