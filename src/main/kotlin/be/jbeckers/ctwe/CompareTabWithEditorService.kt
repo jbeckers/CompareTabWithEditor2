@@ -1,5 +1,6 @@
 package be.jbeckers.ctwe
 
+import com.intellij.openapi.components.ComponentManager
 import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.fileEditor.FileEditorManagerEvent
 import com.intellij.openapi.fileEditor.FileEditorManagerListener
@@ -30,7 +31,7 @@ class CompareTabWithEditorService private constructor(project: Project) {
     companion object {
 
         fun getInstance(project: Project): CompareTabWithEditorService {
-            return ServiceManager.getService(project, CompareTabWithEditorService::class.java)
+            return project.getService(CompareTabWithEditorService::class.java)
         }
     }
 }
