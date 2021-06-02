@@ -1,7 +1,5 @@
 package be.jbeckers.ctwe
 
-import com.intellij.openapi.components.ComponentManager
-import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.fileEditor.FileEditorManagerEvent
 import com.intellij.openapi.fileEditor.FileEditorManagerListener
 import com.intellij.openapi.project.Project
