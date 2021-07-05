@@ -48,9 +48,9 @@ intellij {
 // Configure gradle-changelog-plugin plugin.
 // Read more: https://github.com/JetBrains/gradle-changelog-plugin
 changelog {
-    version = properties("pluginVersion")
-    groups = emptyList()
-    path = "${project.projectDir}/docs/CHANGELOG.md"
+    version.set(properties("pluginVersion"))
+    groups.set(emptyList())
+    path.set("${project.projectDir}/docs/CHANGELOG.md")
 }
 
 // Configure detekt plugin.
