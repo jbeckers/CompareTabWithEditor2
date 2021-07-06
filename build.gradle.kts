@@ -3,7 +3,8 @@ import org.jetbrains.changelog.markdownToHTML
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 fun properties(key: String) = project.findProperty(key).toString()
-fun propertiesList(key: String, delimiter: Char = ',') = properties(key).split(delimiter).map(String::trim).filter(String::isNotEmpty)
+fun propertiesList(key: String, delimiter: Char = ',') =
+    properties(key).split(delimiter).map(String::trim).filter(String::isNotEmpty)
 
 plugins {
     // Kotlin support
@@ -68,17 +69,23 @@ detekt {
 
 tasks {
     // Set the compatibility versions to 1.8
-    withType<JavaCompile> {
-        sourceCompatibility = "1.8"
-        targetCompatibility = "1.8"
+    properties("javaVersion").let {
+        withType<JavaCompile> {
+            sourceCompatibility = it
+            targetCompatibility = it
+        }
+
+        withType<KotlinCompile> {
+            kotlinOptions.jvmTarget = it
+        }
+
+        withType<Detekt> {
+            jvmTarget = it
+        }
     }
 
-    withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "1.8"
-    }
-
-    withType<Detekt> {
-        jvmTarget = "1.8"
+    wrapper {
+        gradleVersion = properties("gradleVersion")
     }
 
     patchPluginXml {
@@ -105,6 +112,13 @@ tasks {
 
     runPluginVerifier {
         ideVersions.set(propertiesList("pluginVerifierIdeVersions"))
+    }
+
+    runIdeForUiTests {
+        systemProperty("robot-server.port", "8082")
+        systemProperty("ide.mac.message.dialogs.as.sheets", "false")
+        systemProperty("jb.privacy.policy.text", "<!--999.999-->")
+        systemProperty("jb.consents.confirmation.enabled", "false")
     }
 
     publishPlugin {

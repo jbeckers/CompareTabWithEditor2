@@ -5,6 +5,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Suppress `UnusedProperty` inspection for the `kotlin.stdlib.default.dependency` in `gradle.properties`
+- Use Gradle `wrapper` task to handle Gradle updates
+- JVM compatibility version extracted to `gradle.properties` file
+- GitHub Actions: UI Tests workflow
+
+### Changed
+- Update `pluginVerifierIdeVersions` to `2020.3.4, 2021.1.3`
+- Change since/until build to `203-212.*`
+- JVM compatibility version goes to 11!
+- Upgrade Gradle Wrapper to `7.1.1`
+
 ## [1.0.7]
 ### Changed
 - Support 2021.2 EAP
