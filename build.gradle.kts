@@ -1,4 +1,3 @@
-import io.gitlab.arturbosch.detekt.Detekt
 import org.jetbrains.changelog.markdownToHTML
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -9,14 +8,12 @@ fun propertiesList(key: String, delimiter: Char = ',') =
 plugins {
     // Kotlin support
     id("org.jetbrains.kotlin.jvm") version "1.5.30"
-    // gradle-intellij-plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
+    // Gradle IntelliJ Plugin
     id("org.jetbrains.intellij") version "1.1.6"
-    // gradle-changelog-plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin
+    // Gradle Changelog Plugin
     id("org.jetbrains.changelog") version "1.3.0"
-    // detekt linter - read more: https://detekt.github.io/detekt/gradle.html
-    id("io.gitlab.arturbosch.detekt") version "1.17.1"
-    // ktlint linter - read more: https://github.com/JLLeitschuh/ktlint-gradle
-    id("org.jlleitschuh.gradle.ktlint") version "10.0.0"
+    // Gradle Qodana Plugin
+    id("org.jetbrains.qodana") version "0.1.12"
 }
 
 group = properties("pluginGroup")
@@ -29,12 +26,8 @@ repositories {
 //    maven("https://www.jetbrains.com/intellij-repository/snapshots")
 //    maven("https://cache-redirector.jetbrains.com/intellij-dependencies")
 }
-dependencies {
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.17.1")
-}
 
-// Configure gradle-intellij-plugin plugin.
-// Read more: https://github.com/JetBrains/gradle-intellij-plugin
+// Configure Gradle IntelliJ Plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
 intellij {
     pluginName.set(properties("pluginName"))
     version.set(properties("platformVersion"))
@@ -46,25 +39,19 @@ intellij {
     plugins.set(propertiesList("platformPlugins"))
 }
 
-// Configure gradle-changelog-plugin plugin.
-// Read more: https://github.com/JetBrains/gradle-changelog-plugin
+// Configure Gradle Changelog Plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin
 changelog {
     version.set(properties("pluginVersion"))
     groups.set(emptyList())
     path.set("${project.projectDir}/docs/CHANGELOG.md")
 }
 
-// Configure detekt plugin.
-// Read more: https://detekt.github.io/detekt/kotlindsl.html
-detekt {
-    config = files("./detekt-config.yml")
-    buildUponDefaultConfig = true
-
-    reports {
-        html.enabled = false
-        xml.enabled = false
-        txt.enabled = false
-    }
+// Configure Gradle Qodana Plugin - read more: https://github.com/JetBrains/gradle-qodana-plugin
+qodana {
+    cachePath.set(projectDir.resolve(".qodana").canonicalPath)
+    reportPath.set(projectDir.resolve("build/reports/inspections").canonicalPath)
+    saveReport.set(true)
+    showReport.set(System.getenv("QODANA_SHOW_REPORT").toBoolean())
 }
 
 tasks {
@@ -77,10 +64,6 @@ tasks {
 
         withType<KotlinCompile> {
             kotlinOptions.jvmTarget = it
-        }
-
-        withType<Detekt> {
-            jvmTarget = it
         }
     }
 
@@ -107,7 +90,11 @@ tasks {
         )
 
         // Get the latest available change notes from the changelog file
-        changeNotes.set(provider { changelog.getLatest().toHTML() })
+        changeNotes.set(provider {
+            changelog.run {
+                getOrNull(properties("pluginVersion")) ?: getLatest()
+            }.toHTML()
+        })
     }
 
     runPluginVerifier {
@@ -119,6 +106,12 @@ tasks {
         systemProperty("ide.mac.message.dialogs.as.sheets", "false")
         systemProperty("jb.privacy.policy.text", "<!--999.999-->")
         systemProperty("jb.consents.confirmation.enabled", "false")
+    }
+
+    signPlugin {
+        certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
+        privateKey.set(System.getenv("PRIVATE_KEY"))
+        password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
     }
 
     publishPlugin {
