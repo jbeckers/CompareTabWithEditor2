@@ -12,6 +12,7 @@ import com.intellij.openapi.vfs.VirtualFile
 
 class CompareTabWithEditor : CompareFilesAction() {
 
+    @Suppress("DialogTitleCapitalization")
     override fun getDiffRequest(e: AnActionEvent): DiffRequest? {
         return if (super.getDiffRequest(e) != null) {
             super.getDiffRequest(e)
@@ -52,7 +53,7 @@ class CompareTabWithEditor : CompareFilesAction() {
 
     companion object {
 
-        protected fun getVirtualFileContentTitle(documentFile: VirtualFile): String {
+        private fun getVirtualFileContentTitle(documentFile: VirtualFile): String {
             val name = documentFile.name
             val parent = documentFile.parent
             return if (parent != null) {
