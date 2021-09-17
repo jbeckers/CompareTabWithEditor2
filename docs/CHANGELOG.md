@@ -5,17 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Added
-- Suppress `UnusedProperty` inspection for the `kotlin.stdlib.default.dependency` in `gradle.properties`
-- Use Gradle `wrapper` task to handle Gradle updates
-- JVM compatibility version extracted to `gradle.properties` file
-- GitHub Actions: UI Tests workflow
 
+## [1.0.8]
 ### Changed
-- Update `pluginVerifierIdeVersions` to `2020.3.4, 2021.1.3`
-- Change since/until build to `203-212.*`
-- JVM compatibility version goes to 11!
-- Upgrade Gradle Wrapper to `7.1.1`
+- Sync with intellij-platform-plugin-template 1.0
 
 ## [1.0.7]
 ### Changed
@@ -66,7 +59,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Updated for Intellij 2019.2+, since some deprecated APIs were removed
 
-[Unreleased]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.7...HEAD
+[Unreleased]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.8...HEAD
+[1.0.8]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.7...v1.0.8
 [1.0.7]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.6...v1.0.7
 [1.0.6]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.5...v1.0.6
 [1.0.5]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.4...v1.0.5
