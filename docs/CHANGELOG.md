@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [1.0.8]
+Plugin sources are now based on intellij-platform-plugin-template 1.0
+
+## [1.0.8]
 ### Changed
 - Sync with intellij-platform-plugin-template 1.0
 
