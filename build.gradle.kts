@@ -22,9 +22,6 @@ version = properties("pluginVersion")
 // Configure project's dependencies
 repositories {
     mavenCentral()
-//    maven("https://www.jetbrains.com/intellij-repository/releases")
-//    maven("https://www.jetbrains.com/intellij-repository/snapshots")
-//    maven("https://cache-redirector.jetbrains.com/intellij-dependencies")
 }
 
 // Configure Gradle IntelliJ Plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
@@ -32,8 +29,6 @@ intellij {
     pluginName.set(properties("pluginName"))
     version.set(properties("platformVersion"))
     type.set(properties("platformType"))
-    downloadSources.set(properties("platformDownloadSources").toBoolean())
-    updateSinceUntilBuild.set(true)
 
     // Plugin Dependencies. Uses `platformPlugins` property from the gradle.properties file.
     plugins.set(propertiesList("platformPlugins"))
@@ -55,13 +50,12 @@ qodana {
 }
 
 tasks {
-    // Set the compatibility versions to 1.8
+    // Set the compatibility versions
     properties("javaVersion").let {
         withType<JavaCompile> {
             sourceCompatibility = it
             targetCompatibility = it
         }
-
         withType<KotlinCompile> {
             kotlinOptions.jvmTarget = it
         }
@@ -95,10 +89,6 @@ tasks {
                 getOrNull(properties("pluginVersion")) ?: getLatest()
             }.toHTML()
         })
-    }
-
-    runPluginVerifier {
-        ideVersions.set(propertiesList("pluginVerifierIdeVersions"))
     }
 
     runIdeForUiTests {
