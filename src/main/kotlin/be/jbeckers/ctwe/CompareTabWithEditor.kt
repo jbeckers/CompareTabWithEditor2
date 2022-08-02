@@ -5,6 +5,7 @@ import com.intellij.diff.actions.CompareFilesAction
 import com.intellij.diff.requests.DiffRequest
 import com.intellij.diff.requests.SimpleDiffRequest
 import com.intellij.openapi.actionSystem.AnActionEvent
+import com.intellij.openapi.actionSystem.CommonDataKeys.VIRTUAL_FILE
 import com.intellij.openapi.diff.DiffBundle
 import com.intellij.openapi.fileEditor.ex.FileEditorManagerEx
 import com.intellij.openapi.util.io.FileUtil
@@ -19,7 +20,7 @@ class CompareTabWithEditor : CompareFilesAction() {
         } else {
             val project = e.project ?: return null
 
-            val left = FileEditorManagerEx.getInstanceEx(project).currentFile
+            val left = e.getData(VIRTUAL_FILE)
             val right = CompareTabWithEditorService.getInstance(project).currentFile
             if (left == null || right == null) {
                 null
@@ -45,7 +46,7 @@ class CompareTabWithEditor : CompareFilesAction() {
         if (project == null) {
             presentation.isVisible = false
         } else {
-            val left = FileEditorManagerEx.getInstanceEx(project).currentFile
+            val left = e.getData(VIRTUAL_FILE)
             val right = CompareTabWithEditorService.getInstance(project).currentFile
             presentation.isVisible = left != null && right != null && left != right
         }
