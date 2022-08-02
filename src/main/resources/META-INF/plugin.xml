@@ -8,8 +8,12 @@
         <projectService serviceImplementation="be.jbeckers.ctwe.CompareTabWithEditorService"/>
     </extensions>
 
+    <projectListeners>
+        <listener class="be.jbeckers.ctwe.CompareTabWithEditorListener" topic="com.intellij.openapi.fileEditor.FileEditorManagerListener"/>
+    </projectListeners>
+
     <actions>
-        <action id="be.jbeckers.ctwe.CompareTabWithEditor" class="be.jbeckers.ctwe.CompareTabWithEditor"
+        <action id="be.jbeckers.ctwe.CompareTabWithEditorAction" class="be.jbeckers.ctwe.CompareTabWithEditorAction"
                 text="Compare Tab With Editor" icon="AllIcons.Actions.Diff">
             <add-to-group group-id="EditorTabPopupMenuEx" anchor="before" relative-to-action="ExternalToolsGroup"/>
         </action>
