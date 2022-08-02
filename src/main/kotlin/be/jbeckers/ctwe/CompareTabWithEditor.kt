@@ -70,13 +70,7 @@ class CompareTabWithEditorService {
         internal set
 }
 
-class CompareTabWithEditorListener : FileEditorManagerListener {
-
-    private val project: Project
-
-    constructor(project: Project) {
-        this.project = project
-    }
+class CompareTabWithEditorListener(private val project: Project) : FileEditorManagerListener {
 
     override fun selectionChanged(event: FileEditorManagerEvent) {
         project.getService(CompareTabWithEditorService::class.java).currentFile = event.newFile
