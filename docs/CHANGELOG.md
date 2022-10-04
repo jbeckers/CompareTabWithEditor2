@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.0.13]
 ### Changed
 - Support 2022.3 EAP
 
@@ -78,7 +80,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Updated for Intellij 2019.2+, since some deprecated APIs were removed
 
-[Unreleased]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.12...HEAD
+[Unreleased]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.13...HEAD
+[1.0.13]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.12...v1.0.13
 [1.0.12]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.11...v1.0.12
 [1.0.11]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.10...v1.0.11
 [1.0.10]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.9...v1.0.10
