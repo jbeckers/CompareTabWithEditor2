@@ -23,9 +23,8 @@
 hs_err_pid*
 
 # gradle stuff
-/build/
-/.gradle/
-
-#intellij stuff
-/.idea/
-/.qodana/
+.gradle
+.idea
+.intellijPlatform
+.qodana
+build
