@@ -47,6 +47,7 @@ dependencies {
 
         instrumentationTools()
         pluginVerifier()
+        zipSigner()
         testFramework(TestFrameworkType.Platform.JUnit5)
     }
 }
