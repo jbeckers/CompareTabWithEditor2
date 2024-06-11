@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Support 2024.2 EAP
+- Migrate to IntelliJ Platform Gradle Plugin 2.0.0
+
+## [1.0.17] - 2024-01-26
+
+- Support 2024.1 EAP
+
 ## [1.0.16] - 2023-10-06
 
 - Support 2023.3 EAP
