@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.0.19] - 2024-10-25
+
 - Support 2024.3 EAP
 
 ## [1.0.18] - 2024-06-11
@@ -132,7 +135,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Updated for Intellij 2019.2+, since some deprecated APIs were removed
 
-[Unreleased]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.18...HEAD
+[Unreleased]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.19...HEAD
+[1.0.19]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.18...v1.0.19
 [1.0.18]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.17...v1.0.18
 [1.0.17]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.16...v1.0.17
 [1.0.16]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.15...v1.0.16
@@ -151,4 +155,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.0.3]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.0...v1.0.1
-[1.0.0]: https://github.com/jbeckers/CompareTabWithEditor2/releases/tag/v1.0.0
+[1.0.0]: https://github.com/jbeckers/CompareTabWithEditor2/commits/v1.0.0
