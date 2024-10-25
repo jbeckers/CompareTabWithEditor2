@@ -102,7 +102,7 @@ intellijPlatform {
             .map { listOf(it.substringAfter('-', "").substringBefore('.').ifEmpty { "default" }) }
     }
 
-    verifyPlugin {
+    pluginVerification {
         ides {
             recommended()
         }
