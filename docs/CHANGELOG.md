@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Support 2025.1 EAP
+
 ## [1.0.19] - 2024-10-25
 
 - Support 2024.3 EAP
