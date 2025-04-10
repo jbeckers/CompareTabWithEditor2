@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.20] - 2025-04-10
+
 - Support 2025.1 EAP
 - Drop support for 2023.3 and 2024.1
 
@@ -138,7 +140,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Updated for Intellij 2019.2+, since some deprecated APIs were removed
 
-[Unreleased]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.19...HEAD
+[Unreleased]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.20...HEAD
+[1.0.20]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.19...v1.0.20
 [1.0.19]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.18...v1.0.19
 [1.0.18]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.17...v1.0.18
 [1.0.17]: https://github.com/jbeckers/CompareTabWithEditor2/compare/v1.0.16...v1.0.17
