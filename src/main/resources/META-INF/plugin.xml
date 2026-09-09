@@ -2,6 +2,8 @@
     <id>be.jbeckers.compare_tab_with_editor2</id>
     <name>Compare Tab With Editor 2</name>
     <vendor email="joachim@jbeckers.be" url="https://jbeckers.github.io/CompareTabWithEditor2/">Joachim Beckers</vendor>
+    <description>An IntelliJ plugin that allows to compare a tab with the currently open file</description>
+
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
