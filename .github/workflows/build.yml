@@ -154,7 +154,7 @@ jobs:
 
       # Upload Qodana result to CodeQL
       - name: Upload Qodana result to CodeQL
-        uses: github/codeql-action/upload-sarif@v4.38.0
+        uses: github/codeql-action/upload-sarif@v4.38.2
         with:
           sarif_file: ${{ runner.temp }}/qodana/results/qodana.sarif.json
 
